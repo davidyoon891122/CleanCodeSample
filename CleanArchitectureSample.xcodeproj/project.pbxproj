@@ -14,6 +14,11 @@
 		49565F0A29F74D0C00E4B59B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49565F0829F74D0C00E4B59B /* LaunchScreen.storyboard */; };
 		49565F1429F74F4400E4B59B /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49565F1329F74F4400E4B59B /* AppAppearance.swift */; };
 		49565F1629F7510000E4B59B /* AppConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49565F1529F7510000E4B59B /* AppConfigurations.swift */; };
+		49565F1829F7549B00E4B59B /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49565F1729F7549B00E4B59B /* AppDIContainer.swift */; };
+		49565F1A29F754EC00E4B59B /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49565F1929F754EC00E4B59B /* DataTransferService.swift */; };
+		49565F1C29F7553800E4B59B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49565F1B29F7553800E4B59B /* NetworkService.swift */; };
+		49565F1E29F755DD00E4B59B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49565F1D29F755DD00E4B59B /* Endpoint.swift */; };
+		49565F2029F7584600E4B59B /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49565F1F29F7584600E4B59B /* NetworkConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		49565F0B29F74D0C00E4B59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49565F1329F74F4400E4B59B /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
 		49565F1529F7510000E4B59B /* AppConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurations.swift; sourceTree = "<group>"; };
+		49565F1729F7549B00E4B59B /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		49565F1929F754EC00E4B59B /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
+		49565F1B29F7553800E4B59B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		49565F1D29F755DD00E4B59B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		49565F1F29F7584600E4B59B /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,10 @@
 				49565F0629F74D0C00E4B59B /* Assets.xcassets */,
 				49565F0829F74D0C00E4B59B /* LaunchScreen.storyboard */,
 				49565F0B29F74D0C00E4B59B /* Info.plist */,
+				49565F1929F754EC00E4B59B /* DataTransferService.swift */,
+				49565F1B29F7553800E4B59B /* NetworkService.swift */,
+				49565F1D29F755DD00E4B59B /* Endpoint.swift */,
+				49565F1F29F7584600E4B59B /* NetworkConfig.swift */,
 			);
 			path = CleanArchitectureSample;
 			sourceTree = "<group>";
@@ -74,6 +88,7 @@
 				49565EFF29F74D0A00E4B59B /* SceneDelegate.swift */,
 				49565F1329F74F4400E4B59B /* AppAppearance.swift */,
 				49565F1529F7510000E4B59B /* AppConfigurations.swift */,
+				49565F1729F7549B00E4B59B /* AppDIContainer.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -148,8 +163,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49565F1A29F754EC00E4B59B /* DataTransferService.swift in Sources */,
+				49565F1E29F755DD00E4B59B /* Endpoint.swift in Sources */,
 				49565F0229F74D0A00E4B59B /* ViewController.swift in Sources */,
+				49565F1C29F7553800E4B59B /* NetworkService.swift in Sources */,
 				49565EFE29F74D0A00E4B59B /* AppDelegate.swift in Sources */,
+				49565F1829F7549B00E4B59B /* AppDIContainer.swift in Sources */,
+				49565F2029F7584600E4B59B /* NetworkConfig.swift in Sources */,
 				49565F0029F74D0A00E4B59B /* SceneDelegate.swift in Sources */,
 				49565F1629F7510000E4B59B /* AppConfigurations.swift in Sources */,
 				49565F1429F74F4400E4B59B /* AppAppearance.swift in Sources */,
