@@ -82,6 +82,90 @@ final class DefaultDataTransferService {
     }
 }
 
+extension DefaultDataTransferService: DataTransferService {
+    func request<T, E>(
+        with endpoint: E,
+        on queue: DataTransferDispatchQueue,
+        completion: @escaping CompletionHandler<T>
+    ) -> NetworkCancellable? where T : Decodable, T == E.Response, E : ResponseRequestable {
+        networkService.request(endpoint: endpoint) { result in
+            switch result {
+            case .success(let data):
+                let result: Result<T, DataTransferError> = self.decode(
+                    data: data,
+                    decoder: endpoint.responseDecoder
+                )
+                queue.asyncExecute {
+                    completion(result)
+                }
+            case .failure(let error):
+                self.errorLogger.log(error: error)
+                let error = self.resolve(networkError: error)
+                queue.asyncExecute {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func request<T, E>(
+        with endpoint: E,
+        completion: @escaping CompletionHandler<T>
+    ) -> NetworkCancellable? where T : Decodable, T == E.Response, E : ResponseRequestable {
+        request(with: endpoint, on: DispatchQueue.main, completion: completion)
+    }
+    
+    func request<E>(
+        with endpoint: E,
+        on queue: DataTransferDispatchQueue,
+        completion: @escaping CompletionHandler<Void>
+    ) -> NetworkCancellable? where E : ResponseRequestable, E.Response == Void {
+        networkService.request(endpoint: endpoint) { result in
+            switch result {
+            case .success:
+                queue.asyncExecute {
+                    completion(.success(()))
+                }
+            case .failure(let error):
+                self.errorLogger.log(error: error)
+                let error = self.resolve(networkError: error)
+                queue.asyncExecute {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
+    func request<E>(
+        with endpoint: E,
+        completion: @escaping CompletionHandler<Void>
+    ) -> NetworkCancellable? where E : ResponseRequestable, E.Response == Void {
+        request(with: endpoint, on: DispatchQueue.main, completion: completion)
+    }
+    
+    
+    // MARK: - Private
+    private func decode<T: Decodable>(
+        data: Data?,
+        decoder: ResponseDecoder
+    ) -> Result<T, DataTransferError> {
+        do {
+            guard let data = data else { return .failure(.noResponse) }
+            let result: T = try decoder.decode(data)
+            return .success(result)
+        } catch {
+            self.errorLogger.log(error: error)
+            return .failure(.parsing(error))
+        }
+    }
+    
+    private func resolve(networkError error: NetworkError) -> DataTransferError {
+        let resolvedError = self.errorResolver.resolve(error: error)
+        return resolvedError is NetworkError ? .networkFailure(error) : .resolvedNetworkError(resolvedError)
+    }
+    
+}
+
 
 // MARK: - Logger
 final class DefaultDataTransferErrorLogger: DataTransferErrorLogger {
