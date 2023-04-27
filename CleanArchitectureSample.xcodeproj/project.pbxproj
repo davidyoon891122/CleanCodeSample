@@ -163,6 +163,48 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		493F476729FA5DDF00A49730 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				493F476829FA5DEB00A49730 /* Flows */,
+				493F476A29FA5DFB00A49730 /* MoviesList */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		493F476829FA5DEB00A49730 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				493F475B29FA2F8F00A49730 /* MoviesSearchFlowCoordinator.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		493F476A29FA5DFB00A49730 /* MoviesList */ = {
+			isa = PBXGroup;
+			children = (
+				493F476B29FA5E0800A49730 /* ViewModel */,
+			);
+			path = MoviesList;
+			sourceTree = "<group>";
+		};
+		493F476B29FA5E0800A49730 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				493F475D29FA30C900A49730 /* MovieListViewModel.swift */,
+				493F476129FA3ABF00A49730 /* MovieListItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		493F476C29FA5E1500A49730 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				493F475F29FA331F00A49730 /* Observable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		49565EF129F74D0A00E4B59B = {
 			isa = PBXGroup;
 			children = (
@@ -190,10 +232,8 @@
 				493F474129F9FD5700A49730 /* Infrastructure */,
 				493F474729F9FE3100A49730 /* Domain */,
 				493F474C29F9FEFE00A49730 /* Common */,
-				493F475B29FA2F8F00A49730 /* MoviesSearchFlowCoordinator.swift */,
-				493F475D29FA30C900A49730 /* MovieListViewModel.swift */,
-				493F475F29FA331F00A49730 /* Observable.swift */,
-				493F476129FA3ABF00A49730 /* MovieListItemViewModel.swift */,
+				493F476729FA5DDF00A49730 /* Presentation */,
+				493F476C29FA5E1500A49730 /* Utils */,
 			);
 			path = CleanArchitectureSample;
 			sourceTree = "<group>";
