@@ -11,6 +11,12 @@ protocol MoviesSearchFlowCoordinatorDependencies {
     func makeMoviesListViewController(
         actions: MoviesListViewModelActions
     ) -> MoviesListViewController
+    
+    func makeMoviesDetailsViewController(movie: Movie) -> UIViewController
+    
+//    func makeMoviesQueriesSuggestionsListViewController(
+//        didSelect: @escaping MoviesQueriesList
+//    )
 }
 
 final class MoviesSearchFlowCoordinator {
@@ -37,6 +43,6 @@ final class MoviesSearchFlowCoordinator {
 
 private extension MoviesSearchFlowCoordinator {
     func showMovieDetails(movie: Movie) {
-//        let vc = dependencies.
+//        let vc = dependencies
     }
 }
